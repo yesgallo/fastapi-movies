@@ -5,7 +5,7 @@ from app.models import user, movie
 
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="Final API REST")
+app = FastAPI(title="Proyecto de Gestión de Usuarios y Películas")
 
 app.include_router(users.router)
 app.include_router(movies.router)
