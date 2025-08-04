@@ -16,30 +16,6 @@ Este proyecto implementa una API REST para la gestión de usuarios y películas,
 ✅ Manejo de errores y respuestas estructuradas
 ✅ Documentación automática en /docs
 
-🏗️ Estructura del Proyecto
-
-final_api/
-├── app/
-│   ├── __init__.py
-│   ├── main.py              # Punto de entrada de la app
-│   ├── database.py          # Configuración DB y sesión
-│   ├── models/              # Modelos SQLAlchemy
-│   │   ├── user.py
-│   │   └── movie.py
-│   ├── schemas/             # Esquemas Pydantic
-│   │   ├── user.py
-│   │   └── movie.py
-│   ├── routers/             # Rutas separadas (Usuarios / Películas)
-│   │   ├── users.py
-│   │   └── movies.py
-│   └── services/
-│       └── tmdb_service.py  # Consumo API externa TMDB
-├── test_api_endpoints.py     # Pruebas CRUD + integración TMDB
-├── test_tmdb_api.py          # Verifica conexión con TMDB
-├── requirements.txt
-├── .env                      # Variables de entorno (TMDB API Key)
-└── README.md
-
 ⚙️ Instalación y Configuración
 
 1️⃣ Clonar el repositorio
