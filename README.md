@@ -36,6 +36,7 @@ final_api/
 │   └── services/
 │       └── tmdb_service.py   # Consumo API externa TMDB
 ├── test_api_endpoints.py     # Script de pruebas automáticas
+├── test_tmdb_api.py
 ├── requirements.txt
 ├── .env                      # Variables de entorno (TMDB API Key)
 └── README.md
@@ -70,14 +71,10 @@ ReDoc → http://127.0.0.1:8000/redoc
 
 Este proyecto incluye un script que prueba todos los endpoints principales.
 
-Ejecutar tests
-Con el servidor corriendo en otro terminal:
-python test_api_endpoints.py
+test_api_endpoints.py → Ejecuta pruebas completas de CRUD de usuarios, CRUD de películas, importación y búsqueda en TMDB.
 
-Salida esperada
-Usuarios → crear, listar, actualizar, eliminar ✅
-Películas → crear manualmente, listar, importar desde TMDB, buscar en TMDB, eliminar ✅
-Todos los requests deberían devolver códigos 200, 201, 204 sin errores 405 ni 422.
+test_tmdb_api.py → Verifica la conexión con la API de TMDB y muestra películas populares.
+
 
 📚 Explicación del Diseño
 
@@ -107,4 +104,21 @@ POST /movies/import/{tmdb_id} – Importar película por ID
 POST /movies/import/popular – Importar películas populares
 GET /movies/search/{query} – Buscar películas en TMDB
 DELETE /movies/{id} – Eliminar película
+
+⚡ Flujo de Funcionamiento
+
+Usuarios:
+Se crean con email único y se pueden listar, actualizar y eliminar.
+
+Películas manuales:
+El admin puede crear películas propias sin TMDB.
+
+Importación TMDB:
+Se conecta a la API externa, descarga películas populares o específicas y las guarda en BD evitando duplicados.
+
+Búsqueda TMDB:
+Permite buscar sin guardar, devolviendo resultados desde TMDB.
+
+Pruebas:
+Un script automatiza todo el flujo y otro verifica la conexión a TMDB.
 
